@@ -80,7 +80,7 @@ extension UIView
 
 extension UIView.KeyframeAnimationOptions {
 
-  static var curveEaseIn: UIViewKeyframeAnimationOptions {
+  static var curveEaseIn: UIView.KeyframeAnimationOptions {
     get {
       return UIViewKeyframeAnimationOptions(animationOptions: .curveEaseIn)
     }
@@ -88,19 +88,19 @@ extension UIView.KeyframeAnimationOptions {
 
   static var curveEaseOut: UIView.KeyframeAnimationOptions {
     get {
-      return UIViewKeyframeAnimationOptions(animationOptions: .curveEaseOut)
+      return UIView.KeyframeAnimationOptions(animationOptions: .curveEaseOut)
     }
   }
 
   static var curveEaseInOut: UIView.KeyframeAnimationOptions {
     get {
-      return UIViewKeyframeAnimationOptions(animationOptions: .curveEaseInOut)
+      return UIView.KeyframeAnimationOptions(animationOptions: .curveEaseInOut)
     }
   }
 
   static var curveLinear: UIView.KeyframeAnimationOptions {
     get {
-      return UIViewKeyframeAnimationOptions(animationOptions: .curveLinear)
+      return UIView.KeyframeAnimationOptions(animationOptions: .curveLinear)
     }
   }
 
