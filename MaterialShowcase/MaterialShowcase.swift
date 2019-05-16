@@ -264,7 +264,7 @@ extension MaterialShowcase {
   }
 
   func startAnimations() {
-    let options: UIViewKeyframeAnimationOptions = [.curveEaseInOut, .repeat]
+    let options: UIView.KeyframeAnimationOptions = [.curveEaseInOut, .repeat]
     UIView.animateKeyframes(withDuration: 1, delay: 0, options: options, animations: {
       UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
         self.targetRippleView.alpha = self.ANI_RIPPLE_ALPHA
@@ -363,7 +363,7 @@ extension MaterialShowcase {
 
         // Create the path.
         let path = UIBezierPath(rect: self.bounds)
-        maskLayer.fillRule = kCAFillRuleEvenOdd
+        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
 
         // Append the circle to the path so that it is subtracted.
         path.append(UIBezierPath(ovalIn: rect))
@@ -395,7 +395,7 @@ extension MaterialShowcase {
 
     let mask = CAShapeLayer()
     mask.path = mutablePath
-    mask.fillRule = kCAFillRuleEvenOdd
+    mask.fillRule = CAShapeLayerFillRule.evenOdd
 
     view.layer.mask = mask
   }

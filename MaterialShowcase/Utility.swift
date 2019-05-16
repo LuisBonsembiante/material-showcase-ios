@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public extension UIColor {
-  
+
   /// Returns color from its hex string
   ///
   /// - Parameter hexString: the color hex string
@@ -31,7 +31,7 @@ public extension UIColor {
     default:
       return UIColor.clear
     }
-    
+
     return UIColor(
       red: CGFloat(r) / 255,
       green: CGFloat(g) / 255,
@@ -41,13 +41,13 @@ public extension UIColor {
 }
 
 extension UIView {
-  
+
   // Transform a view's shape into circle
   func asCircle() {
     self.layer.cornerRadius = self.frame.width / 2;
     self.layer.masksToBounds = true
   }
-  
+
   func setTintColor(_ color: UIColor, recursive: Bool) {
     tintColor = color
     if recursive {
@@ -78,33 +78,33 @@ extension UIView
   }
 }
 
-extension UIViewKeyframeAnimationOptions {
-  
+extension UIView.KeyframeAnimationOptions {
+
   static var curveEaseIn: UIViewKeyframeAnimationOptions {
     get {
       return UIViewKeyframeAnimationOptions(animationOptions: .curveEaseIn)
     }
   }
-  
-  static var curveEaseOut: UIViewKeyframeAnimationOptions {
+
+  static var curveEaseOut: UIView.KeyframeAnimationOptions {
     get {
       return UIViewKeyframeAnimationOptions(animationOptions: .curveEaseOut)
     }
   }
-  
-  static var curveEaseInOut: UIViewKeyframeAnimationOptions {
+
+  static var curveEaseInOut: UIView.KeyframeAnimationOptions {
     get {
       return UIViewKeyframeAnimationOptions(animationOptions: .curveEaseInOut)
     }
   }
-  
-  static var curveLinear: UIViewKeyframeAnimationOptions {
+
+  static var curveLinear: UIView.KeyframeAnimationOptions {
     get {
       return UIViewKeyframeAnimationOptions(animationOptions: .curveLinear)
     }
   }
-  
-  init(animationOptions: UIViewAnimationOptions) {
+
+  init(animationOptions: UIView.KeyframeAnimationOptions) {
     self.init(rawValue: animationOptions.rawValue)
   }
 }

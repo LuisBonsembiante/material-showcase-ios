@@ -22,7 +22,7 @@ public class SkipButtonView: UIView {
     internal static let SKIP_BUTTON_BORDER_RADIUS: CGFloat = 2.0
     internal static let SKIP_BUTTON_PADDING_HORIZONTAL: CGFloat = 12
     internal static let SKIP_BUTTON_PADDING_VERTICAL: CGFloat = 2
-    
+
     public var skipButton: UIButton!
     public var isSkipButtonVisible: Bool!
     public var skipText: String!
@@ -35,32 +35,32 @@ public class SkipButtonView: UIView {
     public var skipButtonMarginRight: CGFloat!
     public var skipButtonMarginTop: CGFloat!
     public var skipButtonMarginBottom: CGFloat!
-    
+
     public weak var delegate: MaterialShowcaseDelegate?
     public var showcaseViewTag: Int!
-    
+
     public init(with text: String, size: CGFloat) {
         #if swift(>=4.0)
-            let skipTextBound: CGSize = text.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: size)])
+            let skipTextBound: CGSize = text.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)])
         #else
             let skipTextBound: CGSize = text.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: size)])
         #endif
-        
+
         // Create frame
         let frame = CGRect(x: 0, y: 0, width: skipTextBound.width + SkipButtonView.SKIP_BUTTON_PADDING_HORIZONTAL * 2 + 4, height: skipTextBound.height + SkipButtonView.SKIP_BUTTON_PADDING_VERTICAL * 2 + 4)
         super.init(frame: frame)
         configure()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// Initializes default view properties
     fileprivate func configure() {
         setDefaultProperties()
     }
-    
+
     fileprivate func setDefaultProperties() {
         // Text
         skipText = SkipButtonView.SKIP_DEFAULT_TEXT
@@ -74,7 +74,7 @@ public class SkipButtonView: UIView {
         skipButtonMarginTop = SkipButtonView.SKIP_BUTTON_MARGIN
         skipButtonMarginBottom = SkipButtonView.SKIP_BUTTON_MARGIN
     }
-    
+
     /// Calculate skip button
     private func addSkipButton() {
         //Calculate size of skip text by font
@@ -91,12 +91,12 @@ public class SkipButtonView: UIView {
                                   width: skipButton.frame.width,
                                   height: skipButton.frame.height)
         skipButton.sizeToFit()
-        
+
         // Handle gesture of skip button
         skipButton.addGestureRecognizer(tapGestureRecoganizer())
         addSubview(skipButton)
     }
-    
+
     /// Create TapGestureRecoganizer of skip button
     private func tapGestureRecoganizer() -> UIGestureRecognizer {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SkipButtonView.skipButtonTouchSelector))
@@ -104,7 +104,7 @@ public class SkipButtonView: UIView {
         tapGesture.numberOfTouchesRequired = 1
         return tapGesture
     }
-    
+
     //Trigger skip button gesture
     @objc func skipButtonTouchSelector() {
         if delegate != nil && delegate?.showCaseSkipped != nil && showcaseViewTag != nil {
@@ -112,12 +112,12 @@ public class SkipButtonView: UIView {
             delegate?.showCaseSkipped?(showcase: view)
         }
     }
-    
+
     /// Overrides this to add subviews. They will be drawn when calling show()
     public override func layoutSubviews() {
         super.layoutSubviews()
         addSkipButton()
         skipButton.isUserInteractionEnabled = true
-        
+
     }
 }
